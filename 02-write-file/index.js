@@ -9,12 +9,10 @@ stdout.write('Your question\n');
 
 const rl = readline.createInterface(process.stdin, process.stdout);
 rl.on('line', (answer) => {
-  writeStream.write(`${answer}\n`),
-    (err) => {
-      if (err) throw err;
-    };
-  if (answer === 'exit') {
-    rl.close();
-  }
+  writeStream.write(`${answer}\n`);
+  if (answer === 'exit') rl.close();
+  (err) => {
+    if (err) throw err;
+  };
 });
 process.on('exit', () => stdout.write('Good luck!'));
